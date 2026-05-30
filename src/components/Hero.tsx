@@ -17,40 +17,46 @@ interface HeroProps {
 export default function Hero({ language, onScrollToSection }: HeroProps) {
   const t = translations[language];
 
-  // Profile image loader - try multiple sources (prefer files placed in `/assets/`)
-  const [imageSrc, setImageSrc] = useState<string>('/assets/profile.jpg');
+  // Profile image loader - use actual profile image from assets
+  const [imageSrc, setImageSrc] = useState<string>('/assets/Jaswanth_Portfolio.jpeg');
   const [imageErrCount, setImageErrCount] = useState<number>(0);
 
   const handleImageError = () => {
     if (imageErrCount === 0) {
-      setImageSrc('/profile.png');
+      setImageSrc('/Jaswanth_Portfolio.jpeg');
       setImageErrCount(1);
       return;
     }
     if (imageErrCount === 1) {
-      setImageSrc('/assets/jaswanth-profile.jpg');
+      setImageSrc('/assets/profile.jpg');
       setImageErrCount(2);
       return;
     }
     if (imageErrCount === 2) {
-      setImageSrc('/jaswanth-profile.jpg');
+      setImageSrc('/profile.png');
       setImageErrCount(3);
       return;
     }
     if (imageErrCount === 3) {
-      setImageSrc('/assets/jaswanth.jpg');
+      setImageSrc('/assets/jaswanth-profile.jpg');
       setImageErrCount(4);
       return;
     }
     if (imageErrCount === 4) {
-      setImageSrc('/jaswanth.jpg');
-      setImageErrCount(1);
-    } else if (imageErrCount === 5) {
-      setImageSrc('/avatar.jpg');
+      setImageSrc('/jaswanth-profile.jpg');
+      setImageErrCount(5);
+      return;
+    }
+    if (imageErrCount === 5) {
+      setImageSrc('/assets/jaswanth.jpg');
       setImageErrCount(6);
       return;
+    }
+    if (imageErrCount === 6) {
+      setImageSrc('/jaswanth.jpg');
+      setImageErrCount(7);
     } else {
-      setImageErrCount(7); // Render SVG fallback
+      setImageErrCount(8); // Render SVG fallback
     }
   };
 
@@ -170,7 +176,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
             <button
               id="cta-connect"
               onClick={() => onScrollToSection('contact')}
-              className="px-8 py-3.5 bg-olive-700 hover:bg-olive-600 text-white font-semibold rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-olive-700/15 hover:shadow-olive-700/25 transition-all duration-300 cursor-pointer"
+              className="px-8 py-3.5 bg-olive-700 hover:bg-olive-600 text-white font-semibold rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-olive-700/15 hover:shadow-olive-700/25 transition-all cursor-pointer"
             >
               <Mail className="w-4 h-4" />
               {t.hero.ctaPrimary}
@@ -179,7 +185,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
             <button
               id="cta-ai-twin"
               onClick={() => onScrollToSection('ai-twin')}
-              className="px-8 py-3.5 bg-white hover:bg-olive-50 text-olive-800 hover:text-olive-900 font-semibold rounded-xl border border-olive-200 flex items-center justify-center gap-3 transition-all duration-300 cursor-pointer"
+              className="px-8 py-3.5 bg-white hover:bg-olive-50 text-olive-800 hover:text-olive-900 font-semibold rounded-xl border border-olive-200 flex items-center justify-center gap-3 transition-all cursor-pointer"
             >
               <Bot className="w-4 h-4 text-olive-600 animate-pulse" />
               {t.hero.ctaSecondary}
@@ -216,11 +222,11 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                 </div>
               </div>
 
-              {/* Portrait Frame - Now displays actual profile image */}
+              {/* Portrait Frame - Displays actual profile image */}
               <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#f5f6f4] to-[#ebece9] border border-olive-205 shadow-inner flex flex-col justify-center items-center">
                 <div className="absolute inset-0 bg-radial from-white/40 via-transparent to-transparent z-0"></div>
                 
-                {imageErrCount < 5 ? (
+                {imageErrCount < 8 ? (
                   <img
                     src={imageSrc}
                     alt="Jaswanth Kasireddi - Professional Profile"
@@ -249,7 +255,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                 )}
 
                 {/* Status Badge */}
-                <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#fbfcfb]/95 border border-olive-200 px-3 py-1.5 rounded-xl flex items-center justify-between text-[10px] font-mono tracking-tighter">
+                <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-[#fbfcfb]/95 border border-olive-200 px-3 py-1.5 rounded-xl flex items-center justify-between text-[10px] font-mono tracking-tight">
                   <span className="flex items-center gap-1 font-bold">
                     <ShieldCheck className="w-3.5 h-3.5 text-olive-600 animate-pulse" />
                     EQF LEVEL 6
@@ -268,7 +274,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                 </div>
                 <div className="h-9 flex items-center justify-center text-olive-900 opacity-90">
                   <svg viewBox="0 0 150 40" className="h-7 w-32 stroke-olive-850" fill="none" strokeWidth="1.6" strokeLinecap="round">
-                    <path d="M 12 25 C 10 15, 18 10, 22 20 C 24 25, 20 32, 19 35 C 18 36, 17 38, 16 39 M 22 28 C 26 23, 29 20, 33 22 C 34 22, 33 29, 36 29 C 39 29, 41 23, 44 23 C 46 23, 44 28, 47 28" />
+                    <path d="M 12 25 C 10 15, 18 10, 22 20 C 24 25, 20 32, 19 35 C 18 36, 17 38, 16 39 M 22 28 C 26 23, 29 20, 33 22 C 34 22, 33 29, 36 29 C 39 29, 41 23, 44 23 C 46 23, 44 28, 47 28 C 50 28, 51 24, 54 24 C 56 24, 57 27, 60 27 C 62 27, 63 24, 66 24 C 69 24, 70 29, 73 29 C 76 29, 77 22, 80 22 C 82 22, 81 29, 84 29 C 87 29, 88 21, 90 21 C 92 21, 92 29, 95 28 C 98 27, 99 20, 102 20 C 104 20, 104 28, 107 28 C 110 28, 111 23, 114 23 C 117 23, 118 30, 121 30 C 124 30, 125 22, 128 22 C 131 22, 132 31, 135 31 C 138 31, 139 24, 142 24 C 145 24, 146 32, 150 32" />
                   </svg>
                 </div>
               </div>
