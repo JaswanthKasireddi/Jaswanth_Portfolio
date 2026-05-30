@@ -37,15 +37,15 @@ export default function ContactSection({ language }: ContactSectionProps) {
     }, 1800);
   };
 
-  // Prefer a PDF placed in `public/resume.pdf`. Falls back to in-memory txt if not available.
+  // Download resume PDF - uses actual German CV file
   const handleDownloadResume = () => {
-    const candidates = ['/assets/resume.pdf', '/resume.pdf'];
+    const candidates = ['/assets/Jaswanth Kasireddi_German_CV.pdf', '/Jaswanth Kasireddi_German_CV.pdf', '/assets/resume.pdf', '/resume.pdf'];
 
     // Try candidates in order; clicking an anchor will either download or open in new tab
     const link = document.createElement('a');
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.download = `Jaswanth_Kasireddi_CV.pdf`;
+    link.download = `Jaswanth_Kasireddi_German_CV.pdf`;
 
     for (const href of candidates) {
       link.href = href;
@@ -61,12 +61,12 @@ export default function ContactSection({ language }: ContactSectionProps) {
     }
 
     // Final fallback: generate plaintext CV (very small fallback)
-    const rawCv = `JASWANTH KASIREDDI - CV\nEmail: jaswanth.kasireddi@gmail.com\nPhone: +91 7995754180`;
+    const rawCv = `JASWANTH KASIREDDI - LEBENSLAUF (CV)\n\nKontakt:\nEmail: jaswanth.kasireddi@gmail.com\nTelefon: +91 7995754180\n\nAusbildung:\nB.Sc. Nursing mit Deutsch B1 Zertifikat\n\nErfahrung:\n2+ Jahre Notfallmedizin & Herzinsuffizienz-Pflege`;
     const blob = new Blob([rawCv], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const fallbackLink = document.createElement('a');
     fallbackLink.href = url;
-    fallbackLink.download = `Jaswanth_Kasireddi_CV.txt`;
+    fallbackLink.download = `Jaswanth_Kasireddi_German_CV.txt`;
     document.body.appendChild(fallbackLink);
     fallbackLink.click();
     document.body.removeChild(fallbackLink);
@@ -158,7 +158,7 @@ export default function ContactSection({ language }: ContactSectionProps) {
               <button
                 id="download-cv-btn"
                 onClick={handleDownloadResume}
-                className="w-full p-4 rounded-2xl bg-olive-650 hover:bg-olive-700 text-white font-bold flex items-center justify-center gap-3 shadow-md shadow-olive-750/5 cursor-pointer transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm border border-olive-700 focus:outline-none focus:ring-2 focus:ring-olive-300"
+                className="w-full p-4 rounded-2xl bg-olive-650 hover:bg-olive-700 text-white font-bold flex items-center justify-center gap-3 shadow-md shadow-olive-750/5 cursor-pointer transition-all duration-300"
               >
                 <FileText className="w-4 h-4 shrink-0" />
                 {language === 'en' ? 'Download CV (PDF)' : 'Lebenslauf herunterladen (PDF)'}
@@ -224,7 +224,7 @@ export default function ContactSection({ language }: ContactSectionProps) {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder={language === 'en' ? 'e.g., Charité University Hospital Berlin' : 'z.B. Charité Universitätsmedizin Berlin'}
-                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all font-light"
+                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-200 transition-all disabled:opacity-50"
                       />
                     </div>
 
@@ -241,7 +241,7 @@ export default function ContactSection({ language }: ContactSectionProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="hr@charite-example.de"
-                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all font-light"
+                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-200 transition-all disabled:opacity-50"
                       />
                     </div>
 
@@ -257,8 +257,8 @@ export default function ContactSection({ language }: ContactSectionProps) {
                         disabled={formState === 'sending'}
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder={language === 'en' ? 'Outline your nursing open positions, requirements, or start interview logistics...' : 'Schildern Sie Ihre vakanten Stellen, gewünschten Unterlagen oder logistische Details...'}
-                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all font-light resize-none"
+                        placeholder={language === 'en' ? 'Outline your nursing open positions, requirements, or start interview logistics...' : 'Schildern Sie Ihre vakanten Stellen, gewünschten Qualifikationen oder Interview-Details...'}
+                        className="w-full bg-white text-olive-900 placeholder-olive-400 rounded-xl px-4 py-3 text-xs sm:text-sm border border-olive-205 focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-200 transition-all disabled:opacity-50 resize-none"
                       />
                     </div>
 
@@ -267,7 +267,7 @@ export default function ContactSection({ language }: ContactSectionProps) {
                       id="contact-submit"
                       type="submit"
                       disabled={formState === 'sending'}
-                      className="w-full py-4 bg-olive-650 hover:bg-olive-700 text-white font-bold rounded-2xl flex items-center justify-center gap-3 shadow-md disabled:opacity-50 transition-all duration-300 text-xs sm:text-sm border border-olive-700 focus:outline-none focus:ring-2 focus:ring-olive-300"
+                      className="w-full py-4 bg-olive-650 hover:bg-olive-700 text-white font-bold rounded-2xl flex items-center justify-center gap-3 shadow-md disabled:opacity-50 transition-all duration-300 cursor-pointer"
                     >
                       {formState === 'sending' ? (
                         <>
