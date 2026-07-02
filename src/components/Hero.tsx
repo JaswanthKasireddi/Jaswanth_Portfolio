@@ -68,7 +68,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
     : ['Notfallmedizin', 'Herzinsuffizienz-Pflege', 'Deutsch B2 Zertifikat', 'Akademischer B.Sc.'];
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center items-center px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-olive-50/60 via-alabaster to-alabaster bg-ekg-grid" id="hero-section">
+    <section className="relative min-h-[95vh] flex flex-col justify-center items-center px-4 pt-24 pb-28 sm:pb-32 md:py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-olive-50/60 via-alabaster to-alabaster bg-ekg-grid" id="hero-section">
       {/* ECG Heartbeat Line Background Effect */}
       <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
         <svg
@@ -99,50 +99,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
 
       <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left Content Column */}
-        <div className="md:col-span-7 space-y-6 text-left">
-          {/* Mobile-only Compact Profile Avatar (visible on mobile only, hidden on tablet and desktop) */}
-          <div className="flex md:hidden justify-start mb-4">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative w-24 h-24 rounded-full p-1 bg-white border border-olive-200 shadow-md"
-            >
-              <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 relative flex items-center justify-center">
-                {imageErrCount < 12 ? (
-                  <img
-                    src={imageSrc}
-                    alt="Jaswanth Kasireddi"
-                    onError={handleImageError}
-                    referrerPolicy="no-referrer"
-                    className="relative z-10 w-full h-full object-cover filter-none"
-                  />
-                ) : (
-                  /* Compact fallback SVG of Jaswanth */
-                  <svg viewBox="0 0 120 120" className="w-16 h-16 text-olive-850">
-                    <circle cx="60" cy="50" r="32" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-olive-350/40" />
-                    <path d="M22 108 C 26 78, 42 72, 60 72 C 78 72, 94 78, 98 108 Z" fill="#800020" />
-                    <path d="M48 72 L 60 92 L 72 72 M52 73 L 60 88 L 68 73" fill="#ffffff" />
-                    <rect x="54" y="58" width="12" height="15" fill="#fbcfe8" rx="1.5" />
-                    <ellipse cx="60" cy="46" rx="19.5" ry="21.5" fill="#fbcfe8" />
-                    <path d="M39 41 C 39 26, 81 26, 81 41 C 74 29, 60 29, 39 41 Z" fill="#1b2230" />
-                    <rect x="44.5" y="42" width="12.5" height="9.5" rx="2.5" fill="none" stroke="#000000" strokeWidth="1.3" />
-                    <rect x="63" y="42" width="12.5" height="9.5" rx="2.5" fill="none" stroke="#000000" strokeWidth="1.3" />
-                    <line x1="57" y1="46" x2="63" y2="46" stroke="#000000" strokeWidth="1.5" />
-                    <path d="M51.5 53 Q 60 50.5 68.5 53" fill="none" stroke="#1b2230" strokeWidth="1.8" strokeLinecap="round" />
-                    <circle cx="51" cy="46.5" r="1.3" fill="#000000" />
-                    <circle cx="69" cy="46.5" r="1.3" fill="#000000" />
-                    <path d="M55 52.5 Q 60 55.5 65 52.5" fill="none" stroke="#0c111d" strokeWidth="1.2" />
-                  </svg>
-                )}
-              </div>
-              <span className="absolute bottom-1 right-1 flex h-4 w-4">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-4 w-4 bg-olive-500 border-2 border-white"></span>
-              </span>
-            </motion.div>
-          </div>
-
+        <div className="md:col-span-7 space-y-6 text-left order-last md:order-first">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -224,12 +181,12 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
         </div>
 
         {/* Right Premium Portrait Column (Paper-Matte Frame) */}
-        <div className="hidden md:flex md:col-span-5 justify-center items-center">
+        <div className="md:col-span-5 flex justify-center items-center order-first md:order-last w-full mb-8 md:mb-0">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            className="relative w-full max-w-[340px] group"
+            className="relative w-full max-w-[260px] sm:max-w-[300px] md:max-w-[340px] group"
           >
             {/* Soft Ambient Inner Glow */}
             <div className="absolute inset-0 bg-olive-100/10 rounded-[32px] blur-xl opacity-60 pointer-events-none transition-all group-hover:scale-105 duration-500"></div>
@@ -238,7 +195,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
             <motion.div 
               whileHover={{ y: -8, scale: 1.01 }}
               transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-              className="relative p-6 rounded-[32px] bg-[#fbfcfb] border border-olive-200/60 shadow-lg shadow-olive-900/5 hover:shadow-xl hover:shadow-olive-900/10 space-y-6 transition-all duration-300"
+              className="relative p-4 sm:p-6 rounded-[24px] sm:rounded-[32px] bg-[#fbfcfb] border border-olive-200/60 shadow-lg shadow-olive-900/5 hover:shadow-xl hover:shadow-olive-900/10 space-y-4 sm:space-y-6 transition-all duration-300"
             >
               {/* Card Title Header with Verification Dots */}
               <div className="flex justify-between items-center border-b border-olive-100/60 pb-3">
@@ -375,7 +332,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-2 flex flex-col items-center gap-1 animate-bounce cursor-pointer opacity-70 hover:opacity-100" onClick={() => onScrollToSection('about-section')}>
+      <div className="absolute bottom-4 sm:bottom-6 flex flex-col items-center gap-1 animate-bounce cursor-pointer opacity-70 hover:opacity-100" onClick={() => onScrollToSection('about-section')}>
         <span className="text-[9px] font-mono tracking-widest text-olive-400 uppercase font-bold">Scroll Explore</span>
         <ArrowDown className="w-3.5 h-3.5 text-olive-400" />
       </div>
