@@ -16,11 +16,11 @@ export default function Standards({ language }: StandardsProps) {
   const t = translations[language];
 
   return (
-    <section className="py-20 px-4 bg-alabaster border-t border-olive-100 relative overflow-hidden" id="standards-section">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-alabaster border-t border-olive-100 relative overflow-hidden" id="standards-section">
       {/* Background graphic stripes symbolizing reliability and stability */}
       <div className="absolute right-0 top-0 bottom-0 w-32 opacity-[0.03] pointer-events-none bg-gradient-to-l from-olive-600 to-transparent"></div>
 
-      <div className="w-full max-w-7xl mx-auto space-y-16 relative z-10">
+      <div className="w-full max-w-7xl mx-auto space-y-10 sm:space-y-16 relative z-10">
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -38,7 +38,7 @@ export default function Standards({ language }: StandardsProps) {
         </div>
 
         {/* Highlight Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           
           {/* Card 1: Equals Pflegefachmann */}
           <motion.div

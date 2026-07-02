@@ -18,8 +18,8 @@ export default function Timeline({ language }: TimelineProps) {
   const expData = portfolioData.experience;
 
   return (
-    <section className="py-20 px-4 bg-alabaster border-t border-olive-100" id="experience-section">
-      <div className="w-full max-w-7xl mx-auto space-y-16">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-alabaster border-t border-olive-100" id="experience-section">
+      <div className="w-full max-w-7xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -33,7 +33,7 @@ export default function Timeline({ language }: TimelineProps) {
         </div>
 
         {/* Two-Column Structured Presentation */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           
           {/* Work Experience Column */}
           <div className="space-y-8">
@@ -51,7 +51,7 @@ export default function Timeline({ language }: TimelineProps) {
               </div>
             </div>
 
-            <div className="relative pl-6 border-l-2 border-olive-300 space-y-10">
+            <div className="relative pl-4 sm:pl-6 border-l-2 border-olive-300 space-y-8 sm:space-y-10">
               {expData.map((exp, index) => (
                 <motion.div
                   key={index}
@@ -62,7 +62,7 @@ export default function Timeline({ language }: TimelineProps) {
                   className="relative space-y-3"
                 >
                   {/* Timeline Node dot */}
-                  <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-olive-600 shadow-sm" />
+                  <div className="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-olive-600 shadow-sm" />
 
                   {/* Header metadata */}
                   <div className="flex flex-wrap items-center justify-between gap-2">
@@ -121,7 +121,7 @@ export default function Timeline({ language }: TimelineProps) {
               </div>
             </div>
 
-            <div className="relative pl-6 border-l-2 border-olive-300 space-y-10">
+            <div className="relative pl-4 sm:pl-6 border-l-2 border-olive-300 space-y-8 sm:space-y-10">
               {eduData.map((edu, index) => (
                 <motion.div
                   key={index}
@@ -132,7 +132,7 @@ export default function Timeline({ language }: TimelineProps) {
                   className="relative space-y-3"
                 >
                   {/* Timeline Node dot */}
-                  <div className="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-olive-500 shadow-sm" />
+                  <div className="absolute -left-[25px] sm:-left-[33px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-olive-500 shadow-sm" />
 
                   {/* Header metadata */}
                   <div className="flex flex-wrap items-center justify-between gap-2">

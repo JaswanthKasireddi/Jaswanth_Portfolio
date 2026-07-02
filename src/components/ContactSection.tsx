@@ -92,8 +92,8 @@ Email: jaswanth.kasireddi@gmail.com
   };
 
   return (
-    <section className="py-20 px-4 bg-alabaster border-t border-olive-100" id="contact">
-      <div className="w-full max-w-7xl mx-auto space-y-16">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-alabaster border-t border-olive-100" id="contact">
+      <div className="w-full max-w-7xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -110,7 +110,7 @@ Email: jaswanth.kasireddi@gmail.com
         </div>
 
         {/* Content Breakdown Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Column 1: Core Credentials & Quick download */}
           <div className="lg:col-span-12 lg:grid lg:grid-cols-2 gap-8 lg:space-y-0 space-y-6 xl:col-span-5 xl:flex xl:flex-col xl:space-y-6">

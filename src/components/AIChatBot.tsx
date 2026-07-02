@@ -219,8 +219,8 @@ export default function AIChatBot({ language }: AIChatBotProps) {
   };
 
   return (
-    <section className="py-20 px-4 bg-white border-t border-olive-100" id="ai-twin">
-      <div className="w-full max-w-4xl mx-auto space-y-12">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-olive-100" id="ai-twin">
+      <div className="w-full max-w-4xl mx-auto space-y-10 sm:space-y-12">
         {/* Section Header */}
         <div className="text-center space-y-3">
           <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-olive-100 border border-olive-200 text-olive-850 rounded-full text-xs font-mono font-bold shadow-sm">
@@ -317,14 +317,14 @@ export default function AIChatBot({ language }: AIChatBotProps) {
           </div>
 
           {/* Preset Chips Actions */}
-          <div className="px-6 py-2.5 bg-olive-50/50 border-t border-olive-150 flex flex-wrap gap-2 shrink-0">
+          <div className="px-4 sm:px-6 py-2.5 bg-olive-50/50 border-t border-olive-150 flex overflow-x-auto gap-2 shrink-0 max-w-full" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             {dynamicSuggestions.map((sug, sIdx) => (
               <button
                 key={sIdx}
                 id={`suggest-btn-${sIdx}`}
                 disabled={loading}
                 onClick={() => handleSendMessage(sug)}
-                className="px-3.5 py-1.5 text-[10px] sm:text-xs font-semibold tracking-wide rounded-lg bg-white hover:bg-olive-50 border border-olive-200 disabled:opacity-50 text-olive-700 hover:text-olive-900 cursor-pointer transition-colors shadow-sm/5"
+                className="px-3 py-1.5 sm:px-3.5 sm:py-1.5 text-[10px] sm:text-xs font-semibold tracking-wide rounded-lg bg-white hover:bg-olive-50 border border-olive-200 disabled:opacity-50 text-olive-700 hover:text-olive-900 cursor-pointer transition-colors shadow-sm/5 shrink-0 whitespace-nowrap"
               >
                 {sug}
               </button>

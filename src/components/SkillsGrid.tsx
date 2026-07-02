@@ -17,8 +17,8 @@ export default function SkillsGrid({ language }: SkillsGridProps) {
   const skillsData = portfolioData.skills;
 
   return (
-    <section className="py-20 px-4 bg-white border-t border-olive-100" id="skills-section">
-      <div className="w-full max-w-7xl mx-auto space-y-16">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-olive-100" id="skills-section">
+      <div className="w-full max-w-7xl mx-auto space-y-10 sm:space-y-16">
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
@@ -35,7 +35,7 @@ export default function SkillsGrid({ language }: SkillsGridProps) {
         </div>
 
         {/* Categories Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           
           {/* Clinical Skills */}
           <div className="p-6 rounded-3xl bg-olive-50/50 border border-olive-150 space-y-6 shadow-sm">
@@ -134,7 +134,7 @@ export default function SkillsGrid({ language }: SkillsGridProps) {
                     <div className="h-1.5 w-full bg-olive-100 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
-                        whileInView={{ width: lang.cefr === 'Native' ? '100%' : '65%' }}
+                        whileInView={{ width: lang.cefr === 'Native' ? '100%' : lang.cefr === 'B2' ? '85%' : '65%' }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2 }}
                         className="h-full rounded-full bg-gradient-to-r from-olive-700 to-olive-550"

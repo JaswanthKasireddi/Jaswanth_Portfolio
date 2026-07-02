@@ -17,21 +17,21 @@ export default function AboutSection({ language }: AboutSectionProps) {
   const data = portfolioData.personal;
 
   return (
-    <section className="py-20 px-4 bg-white border-t border-olive-100" id="about-section">
-      <div className="w-full max-w-7xl mx-auto space-y-16">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-olive-100" id="about-section">
+      <div className="w-full max-w-7xl mx-auto space-y-10 sm:space-y-16">
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-olive-600">
             {language === 'en' ? 'Professional Identity' : 'Berufliche Identität'}
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-olive-950 font-display tracking-tight">
+          <h2 className="text-3.5xl sm:text-3xl md:text-4xl font-extrabold text-olive-950 font-display tracking-tight">
             {t.about.title}
           </h2>
           <div className="h-1 w-12 bg-olive-500 mx-auto rounded-full"></div>
         </div>
 
         {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Detailed Biography Text */}
           <div className="lg:col-span-8 space-y-6 text-olive-850">
             <p className="text-base sm:text-lg font-light leading-relaxed">

@@ -305,29 +305,29 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
       </div>
 
       {/* Trust factors Section bar */}
-      <div className="w-full max-w-7xl mx-auto mt-16 pt-8 border-t border-olive-150 flex flex-col md:flex-row items-center justify-between gap-6 px-4">
-        <div className="flex items-center gap-4 text-left max-w-md">
-          <div className="p-3 bg-olive-100 rounded-xl border border-olive-200 text-olive-750">
-            <ShieldCheck className="w-6 h-6" />
+      <div className="w-full max-w-7xl mx-auto mt-12 md:mt-16 pt-6 md:pt-8 border-t border-olive-150 flex flex-col md:flex-row items-center justify-between gap-6 px-4">
+        <div className="flex items-center gap-4 text-left max-w-md w-full md:w-auto">
+          <div className="p-2.5 sm:p-3 bg-olive-100 rounded-xl border border-olive-200 text-olive-750 shrink-0">
+            <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-olive-900 uppercase tracking-wider">{t.hero.trustTitle}</h4>
-            <p className="text-xs text-olive-600 mt-1 leading-normal font-light">{t.hero.trustText}</p>
+            <h4 className="text-xs sm:text-sm font-bold text-olive-900 uppercase tracking-wider">{t.hero.trustTitle}</h4>
+            <p className="text-[11px] sm:text-xs text-olive-600 mt-1 leading-normal font-light">{t.hero.trustText}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-8 justify-items-center w-full md:w-auto">
+        <div className="grid grid-cols-3 gap-3 sm:gap-8 justify-items-center w-full md:w-auto pt-2 md:pt-0">
           <div className="text-center">
-            <div className="text-2xl font-black font-display text-olive-900">B.Sc.</div>
-            <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">NURSING DEGREE</div>
+            <div className="text-xl sm:text-2xl font-black font-display text-olive-900">B.Sc.</div>
+            <div className="text-[8px] sm:text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">NURSING DEGREE</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-black font-display text-olive-700">2 YEARS</div>
-            <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">EMERGENCY EXP.</div>
+            <div className="text-xl sm:text-2xl font-black font-display text-olive-700">2 YEARS</div>
+            <div className="text-[8px] sm:text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">EMERGENCY EXP.</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-black font-display text-olive-600">B2 GER</div>
-            <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">CERTIFIED FLUEN.</div>
+            <div className="text-xl sm:text-2xl font-black font-display text-olive-600">B2 GER</div>
+            <div className="text-[8px] sm:text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">CERTIFIED FLUEN.</div>
           </div>
         </div>
       </div>
