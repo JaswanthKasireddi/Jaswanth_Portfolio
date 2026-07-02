@@ -224,7 +224,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
         </div>
 
         {/* Right Premium Portrait Column (Paper-Matte Frame) */}
-        <div className="md:col-span-5 flex justify-center items-center">
+        <div className="hidden md:flex md:col-span-5 justify-center items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
