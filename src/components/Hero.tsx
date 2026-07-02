@@ -5,9 +5,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Activity, HeartPulse, Stethoscope, GraduationCap, ShieldCheck, Mail, Bot, Languages, ArrowDown, Camera, UploadCloud, X } from 'lucide-react';
+import { Activity, HeartPulse, Stethoscope, GraduationCap, ShieldCheck, Mail, Bot, Languages, ArrowDown } from 'lucide-react';
 import { portfolioData, translations } from '../data';
 import { Language } from '../types';
+
+// @ts-ignore
+import jaswanthProfile from '../../assets/Jaswanth_Portfolio.jpeg';
 
 interface HeroProps {
   language: Language;
@@ -17,80 +20,35 @@ interface HeroProps {
 export default function Hero({ language, onScrollToSection }: HeroProps) {
   const t = translations[language];
 
-  // Dynamic image loaders to try finding actual profile photo uploaded by the user
-  const [imageSrc, setImageSrc] = useState<string>('/brother_photo.png');
+  // Dynamic image loaders with the uploaded profile photo as primary
+  const [imageSrc, setImageSrc] = useState<string>(jaswanthProfile || '/assets/Jaswanth_Portfolio.jpeg');
   const [imageErrCount, setImageErrCount] = useState<number>(0);
 
   const handleImageError = () => {
-    if (imageErrCount === 0) {
-      setImageSrc('/brother_photo.jpg');
-      setImageErrCount(1);
-    } else if (imageErrCount === 1) {
-      setImageSrc('/brother_photo.jpeg');
-      setImageErrCount(2);
-    } else if (imageErrCount === 2) {
-      setImageSrc('/Kasireddi_brother_photo.jpg');
-      setImageErrCount(3);
-    } else if (imageErrCount === 3) {
-      setImageSrc('/profile.jpg');
-      setImageErrCount(4);
-    } else if (imageErrCount === 4) {
-      setImageSrc('/profile.png');
-      setImageErrCount(5);
+    const errorChain = [
+      jaswanthProfile,
+      '/assets/Jaswanth_Portfolio.jpeg',
+      '/assets/brother_photo.png',
+      '/assets/brother_photo.jpg',
+      '/assets/brother_photo.jpeg',
+      '/assets/Kasireddi_brother_photo.jpg',
+      '/assets/profile.jpg',
+      '/assets/profile.png',
+      '/brother_photo.png',
+      '/brother_photo.jpg',
+      '/brother_photo.jpeg',
+      '/Kasireddi_brother_photo.jpg',
+      '/profile.jpg',
+      '/profile.png'
+    ];
+    
+    if (imageErrCount < errorChain.length - 1) {
+      const nextIndex = imageErrCount + 1;
+      setImageSrc(errorChain[nextIndex]);
+      setImageErrCount(nextIndex);
     } else {
-      setImageErrCount(6); // Render the high-fidelity professional fallback SVG
+      setImageErrCount(errorChain.length); // Render the high-fidelity professional fallback SVG
     }
-  };
-
-  // Persistent local photo uploader capability so recruiter can custom upload any profile photo (e.g. the brother's photo) directly!
-  const [customPhoto, setCustomPhoto] = useState<string>(() => {
-    return localStorage.getItem('jaswanth_custom_photo') || '';
-  });
-  const [isDragOver, setIsDragOver] = useState<boolean>(false);
-
-  const handlePhotoUpload = (file: File) => {
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result as string;
-        if (result) {
-          localStorage.setItem('jaswanth_custom_photo', result);
-          setCustomPhoto(result);
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragOver(true);
-  };
-
-  const handleDragLeave = () => {
-    setIsDragOver(false);
-  };
-
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragOver(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) {
-      handlePhotoUpload(file);
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      handlePhotoUpload(file);
-    }
-  };
-
-  const handleClearPhoto = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    localStorage.removeItem('jaswanth_custom_photo');
-    setCustomPhoto('');
   };
 
   const getAttrIcon = (idx: number) => {
@@ -255,56 +213,11 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                 </div>
               </div>
 
-              {/* Portrait Matte Frame wrapper (Interactive Drag-and-Drop / Click Uploader) */}
-              <div 
-                onDragOver={handleDragOver}
-                onDragLeave={handleDragLeave}
-                onDrop={handleDrop}
-                onClick={() => document.getElementById('photo-upload-input')?.click()}
-                className={`relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#f5f6f4] to-[#ebece9] border cursor-pointer group/portrait transition-all duration-300 flex flex-col justify-center items-center ${
-                  isDragOver 
-                    ? 'border-olive-500 ring-2 ring-olive-500/20' 
-                    : 'border-olive-205 shadow-inner'
-                }`}
-              >
+              {/* Portrait Matte Frame wrapper */}
+              <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#f5f6f4] to-[#ebece9] border border-olive-205 shadow-inner flex flex-col justify-center items-center group/portrait transition-all duration-300">
                 <div className="absolute inset-0 bg-radial from-white/40 via-transparent to-transparent z-0"></div>
                 
-                {/* Hidden File Input */}
-                <input 
-                  type="file" 
-                  id="photo-upload-input" 
-                  accept="image/*" 
-                  className="hidden" 
-                  onChange={handleFileChange}
-                />
-
-                {/* Hover Uploader Overlay */}
-                <div className="absolute inset-0 bg-olive-950/40 opacity-0 group-hover/portrait:opacity-100 transition-opacity duration-300 z-30 flex flex-col items-center justify-center text-white space-y-2 select-none">
-                  <UploadCloud className="w-8 h-8 text-white/95 animate-bounce" />
-                  <span className="text-[10px] font-bold tracking-wider uppercase bg-olive-900/80 px-2.5 py-1 rounded-md backdrop-blur-sm shadow-sm">
-                    {language === 'en' ? 'Click or Drag to Upload Photo' : 'Klicken oder ziehen für Foto'}
-                  </span>
-                </div>
-
-                {/* If Custom Photo is Uploaded */}
-                {customPhoto ? (
-                  <div className="relative w-full h-full z-10">
-                    <img
-                      src={customPhoto}
-                      alt="Jaswanth Kasireddi Custom Portrait"
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Clear Button */}
-                    <button
-                      onClick={handleClearPhoto}
-                      title={language === 'en' ? 'Remove Custom Photo' : 'Foto entfernen'}
-                      className="absolute top-2 right-2 p-1.5 bg-white/95 hover:bg-white text-olive-800 hover:text-red-600 rounded-full shadow-md z-40 transition-all border border-olive-200"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                ) : imageErrCount < 6 ? (
+                {imageErrCount < 12 ? (
                   <img
                     src={imageSrc}
                     alt="Jaswanth Kasireddi"
@@ -363,9 +276,6 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                       {/* Subtle, friendly smile */}
                       <path d="M55 52.5 Q 60 55.5 65 52.5" fill="none" stroke="#0c111d" strokeWidth="1.2" />
                     </svg>
-                    <span className="text-[10px] text-olive-400 mt-2 font-mono font-bold flex items-center gap-1">
-                      <Camera className="w-3.5 h-3.5" /> CLICK OR DRAG TO ADD PHOTO
-                    </span>
                   </div>
                 )}
 
