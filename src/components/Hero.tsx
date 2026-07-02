@@ -9,9 +9,6 @@ import { Activity, HeartPulse, Stethoscope, GraduationCap, ShieldCheck, Mail, Bo
 import { portfolioData, translations } from '../data';
 import { Language } from '../types';
 
-// @ts-ignore
-import jaswanthProfile from '../../assets/Jaswanth_Portfolio.jpeg';
-
 interface HeroProps {
   language: Language;
   onScrollToSection: (sectionId: string) => void;
@@ -21,12 +18,11 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
   const t = translations[language];
 
   // Dynamic image loaders with the uploaded profile photo as primary
-  const [imageSrc, setImageSrc] = useState<string>(jaswanthProfile || '/assets/Jaswanth_Portfolio.jpeg');
+  const [imageSrc, setImageSrc] = useState<string>('/assets/Jaswanth_Portfolio.jpeg');
   const [imageErrCount, setImageErrCount] = useState<number>(0);
 
   const handleImageError = () => {
     const errorChain = [
-      jaswanthProfile,
       '/assets/Jaswanth_Portfolio.jpeg',
       '/assets/brother_photo.png',
       '/assets/brother_photo.jpg',
@@ -68,11 +64,11 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
 
   // Professional characteristics that fade or cycle
   const attributes = language === 'en' 
-    ? ['Emergency Operations', 'Heart Failure Care', 'CEFR B1 Deutsch', 'Graduated B.Sc.']
-    : ['Notfallmedizin', 'Herzinsuffizienz-Pflege', 'Deutsch B1 Zertifikat', 'Akademischer B.Sc.'];
+    ? ['Emergency Operations', 'Heart Failure Care', 'CEFR B2 Certified', 'Graduated B.Sc.']
+    : ['Notfallmedizin', 'Herzinsuffizienz-Pflege', 'Deutsch B2 Zertifikat', 'Akademischer B.Sc.'];
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-center items-center px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-olive-50/60 via-alabaster to-alabaster" id="hero-section">
+    <section className="relative min-h-[92vh] flex flex-col justify-center items-center px-4 py-8 lg:py-16 overflow-hidden bg-gradient-to-b from-olive-50/60 via-alabaster to-alabaster bg-ekg-grid" id="hero-section">
       {/* ECG Heartbeat Line Background Effect */}
       <div className="absolute inset-0 opacity-20 pointer-events-none flex items-center justify-center">
         <svg
@@ -287,7 +283,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                   </span>
                   <span className="text-olive-200">|</span>
                   <span className="text-olive-750 font-bold flex items-center gap-1.5">
-                    <Languages className="w-3 h-3 text-olive-650" /> GERMANY B1+
+                    <Languages className="w-3 h-3 text-olive-650" /> GERMANY B2
                   </span>
                 </div>
               </div>
@@ -330,8 +326,8 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
             <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">EMERGENCY EXP.</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-black font-display text-olive-600">B1 GER</div>
-            <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">ACTIVE LEARNER</div>
+            <div className="text-2xl font-black font-display text-olive-600">B2 GER</div>
+            <div className="text-[10px] font-mono font-bold text-olive-400 uppercase tracking-widest mt-1">CERTIFIED FLUEN.</div>
           </div>
         </div>
       </div>

@@ -1,48 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  /* Premium Olive Green Theme Palette */
-  --color-olive-50: #f5f7f3;
-  --color-olive-100: #e6ebdf;
-  --color-olive-200: #cee0c1;
-  --color-olive-300: #abc997;
-  --color-olive-400: #86ad6e;
-  --color-olive-500: #628e4a;
-  --color-olive-600: #4c7138;
-  --color-olive-700: #3b572c;
-  --color-olive-800: #314725;
-  --color-olive-900: #293b20;
-  --color-olive-950: #141f10;
+  /* Premium Medical-Grade Clinical Palette (remapping 'olive' classes to sterile teal & professional health cyan-navy) */
+  --color-olive-50: #f0fafb;    /* Clinical pure ice blue/teal */
+  --color-olive-100: #e0f2f1;   /* Sterile sanitizing white-teal */
+  --color-olive-150: #ccebe9;   /* Crisp clinical border teal */
+  --color-olive-200: #a2e0db;   /* Modern healthcare teal-200 */
+  --color-olive-205: #5bc4bd;   /* Medical teal-300 */
+  --color-olive-250: #30aca3;   /* Medical teal-400 */
+  --color-olive-300: #1ca39c;   /* Medical teal-500 */
+  --color-olive-350: #14807a;   /* Medical teal-600 */
+  --color-olive-400: #0f7a75;   /* Active clinical teal */
+  --color-olive-450: #0f766e;   /* Medical teal-700 */
+  --color-olive-500: #0891b2;   /* Hospital highlight cyan-600 */
+  --color-olive-550: #0284c7;   /* Professional health sky-600 */
+  --color-olive-600: #0e7490;   /* Clinical cyan-700 */
+  --color-olive-655: #115e59;   /* Surgical deep teal-800 */
+  --color-olive-650: #0d9488;   /* Clinical teal-600 */
+  --color-olive-700: #0f172a;   /* Sterile dark navy for high-end digital clinical interfaces */
+  --color-olive-750: #1e3a8a;   /* Clinical deep navy blue */
+  --color-olive-800: #0f172a;   /* Sterile deep slate-900 */
+  --color-olive-850: #1e293b;   /* Slate-800 */
+  --color-olive-900: #0284c7;   /* Emergency cardiac blue */
+  --color-olive-950: #020617;   /* Sterile slate-950 */
 
-  /* Custom Warm White Options */
-  --color-alabaster: #f9faf7;
-  --color-cream: #f4faf0;
+  /* Emergency Pulse & Live Cardiac indicators */
+  --color-pulse-500: #f43f5e;   /* Cardiovascular rose-500 */
+  --color-pulse-600: #e11d48;   /* Cardiovascular rose-600 */
+  --color-pulse-700: #be123c;   /* Cardiovascular rose-700 */
+
+  /* Custom Sterile White Options */
+  --color-alabaster: #f8fafc;   /* Pristine hospital white */
+  --color-cream: #f0fdf4;       /* Sanitizing light mint green */
 }
 
-/* Base resets for a smooth experience */
+/* Base resets for a pristine clinical experience */
 body {
-  background-color: #f9faf7;
-  color: #141f10;
+  background-color: #f8fafc;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
-/* Custom minimal scrollbar */
+/* Authentic EKG/Cardiac monitor heartbeat line keyframes */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.4s infinite ease-in-out;
+}
+
+/* Custom minimal clinic-grade scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f5f7f3;
+  background: #f8fafc;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cee0c1;
+  background: #ccebe9;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #abc997;
+  background: #a2e0db;
 }
+
+/* Medical EKG graph paper background pattern */
+.bg-ekg-grid {
+  background-size: 40px 40px, 8px 8px;
+  background-image: 
+    linear-gradient(to right, rgba(14, 116, 144, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.05) 1px, transparent 1px),
+    linear-gradient(to right, rgba(14, 116, 144, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.015) 1px, transparent 1px);
+}
+
+/* Glassmorphism sterile overlay */
+.sterile-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(204, 235, 233, 0.5);
+}
+
+/* Heartbeat pulse glow effect */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(244, 63, 94, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(244, 63, 94, 0.65); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+

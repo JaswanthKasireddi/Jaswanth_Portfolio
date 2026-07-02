@@ -104,7 +104,7 @@ export default function Standards({ language }: StandardsProps) {
                 <Languages className="w-5 h-5" />
               </span>
               <span className="px-2.5 py-0.5 rounded-lg bg-olive-100 text-[9px] font-mono font-bold text-olive-700 border border-olive-200">
-                {language === 'en' ? 'CEFR Level B1' : 'Deutsch B1'}
+                {language === 'en' ? 'CEFR Level B2' : 'Deutsch B2'}
               </span>
             </div>
             <div>

@@ -66,7 +66,7 @@ export default function App() {
             className="flex items-center gap-2 cursor-pointer group"
           >
             <span className="p-2 bg-gradient-to-tr from-olive-600 to-olive-500 rounded-xl text-white shadow-md shadow-olive-600/20 group-hover:scale-105 transition-all duration-300">
-              <Heart className="w-4.5 h-4.5 animate-pulse" />
+              <Heart className="w-4.5 h-4.5 animate-heartbeat" />
             </span>
             <div className="text-left font-display">
               <div className="text-sm font-bold tracking-tight text-olive-950 group-hover:text-olive-600 transition-colors">
@@ -157,7 +157,7 @@ export default function App() {
       {/* Humble Footer */}
       <footer className="py-12 px-4 border-t border-olive-100 bg-olive-50 text-olive-500 text-center text-xs space-y-4" id="portfolio-footer">
         <div className="flex justify-center items-center gap-1.5 text-olive-800">
-          <Heart className="w-4 h-4 text-olive-600 fill-current animate-pulse" />
+          <Heart className="w-4 h-4 text-olive-600 fill-current animate-heartbeat" />
           <span className="font-semibold tracking-tight">Jaswanth Kasireddi Portfolio</span>
         </div>
         <p className="font-light max-w-md mx-auto text-olive-600 leading-relaxed">

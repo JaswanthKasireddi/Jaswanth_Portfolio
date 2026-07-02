@@ -165,7 +165,7 @@ export const portfolioData = {
     languages: [
       { name: 'Telugu', level: { en: 'Native (Mother Tongue)', de: 'Muttersprache' }, cefr: 'Native' },
       { name: 'English', level: { en: 'B1 CEFR (Professional Working)', de: 'B1 GER (Sehr gute Kenntnisse)' }, cefr: 'B1' },
-      { name: 'German', level: { en: 'B1 CEFR (Actively Advancing to B2)', de: 'B1 GER (Kommunikationsstark, in Weiterbildung)' }, cefr: 'B1' },
+      { name: 'German', level: { en: 'B2 CEFR (Officially Certified, Professional Fluency)', de: 'B2 GER (Zertifiziert, fließende Fach- und Alltagskompetenz)' }, cefr: 'B2' },
     ],
   },
 };
@@ -194,7 +194,7 @@ export const translations: Record<Language, TranslationSet> = {
     about: {
       title: 'About Jaswanth',
       text1: 'My name is Jaswanth Kasireddi, born in 2000 in India. Backed by a full Bachelor of Science in Nursing, I have actively practiced in the Emergency & Cardiac sectors for two years. Nursing to me is not just a clinical job—it is a continuous pursuit of patient well-being, clinical excellence, and absolute calm under pressure.',
-      text2: 'My current objective is to establish myself within the prestigious German healthcare system. I have successfully learned German up to B1 level and am actively practicing to enrich my vocabulary and grasp medical terminologies (Fachsprache) swiftly to support German clinics in providing exceptional patient care.',
+      text2: 'My current objective is to establish myself within the prestigious German healthcare system. I have successfully achieved my German B2 level and am actively studying medical terminologies (Fachsprache) swiftly to support German clinics in providing exceptional patient care.',
       philosophyTitle: 'Nursing Philosophy',
       philosophyText: 'A patient is first a person. Compassionate listening, sharp vital monitoring, and collaborative teamwork with doctors can bridge stressful situations and optimize clinical outcomes.',
       keyFact1: 'Academic Grade',
@@ -202,7 +202,7 @@ export const translations: Record<Language, TranslationSet> = {
       keyFact2: 'Experience',
       keyFact2Val: '2 Years Emergency care',
       keyFact3: 'Language prep',
-      keyFact3Val: 'German B1 Completed',
+      keyFact3Val: 'German B2 Certified',
     },
     education: {
       title: 'Academic Foundations',
@@ -233,8 +233,8 @@ export const translations: Record<Language, TranslationSet> = {
       recognitionText: 'In Germany, a Bachelor of Science (B.Sc.) in Nursing is highly regarded and maps perfectly to the German "Pflegefachmann" profession. All modules match the critical curriculum components, indicating a smooth equivalency review via regional administrative entities (Landesprüfungsamt).',
       eqfHighlight: '2. EQF Level 6 Equivalence',
       eqfText: 'My 5-year B.Sc. Clinical Degree sits at Level 6 of the European Qualifications Framework (EQF). This represents a deep understanding of pathophysiology, pharmacology, pediatrics, and crisis care—significantly exceeding standard vocational levels.',
-      languageCertTitle: '3. Language Readiness (Language B1/B2)',
-      languageCertText: 'Currently holding B1 German language certificate levels (Listening, Reading, Writing, Speaking). Actively studying medical nursing vocabulary and German medical documentation standards to ensure error-free clinical records from day one.',
+      languageCertTitle: '3. Language Readiness (Language B2 Certified)',
+      languageCertText: 'Holds an official B2 German language certificate, proving professional communication fluency in both general and medical situations. Actively learning specific clinical terminologies to ensure impeccable patient charting from day one.',
       statusBadge: 'Ready for German Hospitals',
     },
     aiTwin: {
@@ -281,12 +281,12 @@ export const translations: Record<Language, TranslationSet> = {
       ctaPrimary: 'Kontakt aufnehmen',
       ctaSecondary: 'Mit meinem KI-Zwilling sprechen',
       trustTitle: 'Klinische Zuverlässigkeit & Resilienz',
-      trustText: 'Akademische Ausbildung nach EQR-Niveau 6 (European Qualifications Framework). Mit abgeschlossenem B1-Sprachniveau und ausgeprägten Pflegekompetenzen für einen schnellen Berufseinstieg in Deutschland.',
+      trustText: 'Akademische Ausbildung nach EQR-Niveau 6 (European Qualifications Framework). Mit zertifiziertem B2-Sprachniveau und ausgeprägten Pflegekompetenzen für einen schnellen Berufseinstieg in Deutschland.',
     },
     about: {
       title: 'Wer ist Jaswanth?',
       text1: 'Mein Name ist Jaswanth Kasireddi, geboren im Jahr 2000 in Indien. Basierend auf einem fünfjährigen wissenschaftlich-praktischen Studium der Krankenpflege (B.Sc. Nursing) konnte ich zwei Jahre wertvolle Berufserfahrung im Bereich der inneren Medizin und der Notfallversorgung (Intensivabteilung) sammeln. Pflege ist für mich Passion, Verantwortung und strukturierte Ruhe.',
-      text2: 'Mein klares Ziel ist es, in Deutschland als anerkannter Krankenpfleger (Pflegefachmann) tätig zu sein. Ich habe die deutsche Sprache bereits erfolgreich bis zum Niveau B1 erlernt und verfeinere meine Sprachkompetenzen täglich im Selbststudium und in Fachsprachkursen, um deutsche Krankenhäuser nahtlos und kompetent zu verstärken.',
+      text2: 'Mein klares Ziel ist es, in Deutschland als anerkannter Krankenpfleger (Pflegefachmann) tätig zu sein. Ich habe das deutsche B2-Zertifikat erfolgreich erworben und vertiefe mein pflegespezifisches Fachwissen täglich, um deutsche Krankenhäuser nahtlos und kompetent zu verstärken.',
       philosophyTitle: 'Pflegephilosophie',
       philosophyText: 'Ein Patient ist in erster Linie ein Mensch. Durch empathisches Zuhören, aufmerksame Überwachung und enger Kooperation mit dem ärztlichen Team meistern wir Stresssituationen und sichern die beste Behandlungsqualität.',
       keyFact1: 'Akademische Note',
@@ -294,7 +294,7 @@ export const translations: Record<Language, TranslationSet> = {
       keyFact2: 'Berufserfahrung',
       keyFact2Val: '2 Jahre Akutpflege',
       keyFact3: 'Sprachkenntnisse',
-      keyFact3Val: 'Deutsch B1 abgeschlossen',
+      keyFact3Val: 'Deutsch B2 zertifiziert',
     },
     education: {
       title: 'Akademische Qualifikation',
@@ -325,8 +325,8 @@ export const translations: Record<Language, TranslationSet> = {
       recognitionText: 'Mein akademischer Abschluss in Bachelor of Science in Nursing qualifiziert mich für die Zulassung zur Rechtsprüfung oder der direkten Gleichstellung nach dem neuen Pflegeberufegesetz (PflBG). Die Kernfächer decken alle klinischen Stunden vollumfänglich ab.',
       eqfHighlight: '2. EQR-Niveau 6 (EQF equivalence)',
       eqfText: 'Das B.Sc. Studium ist im Europäischen Qualifikationsrahmen auf Niveau 6 (äquivalent zum deutschen Bachelor / Meisterniveau) eingestuft. Dies bürgt im Vergleich zur rein betrieblichen Ausbildung für vertieftes fachliches Reflexionsvermögen und pathophysiologische Exzellenz.',
-      languageCertTitle: '3. Sprachliche Integration (Deutsch B1/B2)',
-      languageCertText: 'Nachweisbare B1-Kenntnisse in allen Teilbereichen (Hören, Lesen, Schreiben, Sprechen). Aktive Vorbereitung auf den Klinikalltag durch Aneignung medizinischer Fachbegriffe (Anamnese, Dokumentation), um Behandlungsfehler durch Missverständnisse auszuschließen.',
+      languageCertTitle: '3. Sprachliche Integration (Deutsch B2 zertifiziert)',
+      languageCertText: 'Offizielles B2-Zertifikat vorhanden, welches eine fließende Kommunikation im Klinikalltag garantiert. Kontinuierliche Vertiefung des medizinischen Fachwortschatzes für eine fehlerfreie Übergabe und Dokumentation.',
       statusBadge: 'Bereit für deutsche Kliniken',
     },
     aiTwin: {

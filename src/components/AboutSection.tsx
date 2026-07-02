@@ -101,8 +101,8 @@ export default function AboutSection({ language }: AboutSectionProps) {
               </div>
               <p className="text-[11px] text-olive-550 leading-normal font-light">
                 {language === 'en'
-                  ? 'Completed official certificate. Actively advancing towards medical professional B2.'
-                  : 'Nachweisbare B1-Zertifizierung. Laufende Fortbildung für klinische Fachsprache (B2).'}
+                  ? 'Completed official B2 certificate, proving everyday and clinical communication fluency.'
+                  : 'Offizielle B2-Zertifizierung erfolgreich absolviert. Bereit für fließende Patientenkommunikation und fehlerfreie Dokumentation.'}
               </p>
             </div>
           </div>

@@ -33,6 +33,7 @@ export default function AIChatBot({ language }: AIChatBotProps) {
   const [inputVal, setInputVal] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorText, setErrorText] = useState<string | null>(null);
+  const [userInteracted, setUserInteracted] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   // Richer interactive question chips representing different recruiter-friendly query topics
@@ -42,26 +43,27 @@ export default function AIChatBot({ language }: AIChatBotProps) {
     'Are you willing to relocate to other regions?',
     'What clinical skills did you master at CARE?',
     'How can we schedule a fast video interview?',
-    'Do you have your official B1 certificate?'
+    'Do you have your official B2 certificate?'
   ] : [
     'Erzähl mir von deinen Kardiologie-Diensten.',
     'Wie weit ist dein Anerkennungsverfahren?',
     'Bist du bereit, bundesweit umzuziehen?',
     'Welche Fähigkeiten hast du bei CARE gelernt?',
     'Wie können wir ein Video-Interview buchen?',
-    'Besitzt du bereits ein offizielles B1 Zertifikat?'
+    'Besitzt du bereits ein offizielles B2 Zertifikat?'
   ];
 
   useEffect(() => {
-    // Auto Scroll to bottom on message
-    if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+    // Auto Scroll to bottom on message ONLY after user has interacted to prevent initial scroll-on-load
+    if (userInteracted && scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
-  }, [messages, loading]);
+  }, [messages, loading, userInteracted]);
 
   const handleSendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
 
+    setUserInteracted(true);
     setErrorText(null);
     const userMessage: Message = {
       id: Math.random().toString(),
