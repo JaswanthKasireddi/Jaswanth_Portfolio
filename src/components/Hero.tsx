@@ -97,9 +97,52 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-olive-200/30 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '10s' }}></div>
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-olive-100/40 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }}></div>
 
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         {/* Left Content Column */}
-        <div className="lg:col-span-7 space-y-6 text-left">
+        <div className="md:col-span-7 space-y-6 text-left">
+          {/* Mobile-only Compact Profile Avatar (visible on mobile only, hidden on tablet and desktop) */}
+          <div className="flex md:hidden justify-start mb-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-24 h-24 rounded-full p-1 bg-white border border-olive-200 shadow-md"
+            >
+              <div className="w-full h-full rounded-full overflow-hidden bg-slate-100 relative flex items-center justify-center">
+                {imageErrCount < 12 ? (
+                  <img
+                    src={imageSrc}
+                    alt="Jaswanth Kasireddi"
+                    onError={handleImageError}
+                    referrerPolicy="no-referrer"
+                    className="relative z-10 w-full h-full object-cover filter-none"
+                  />
+                ) : (
+                  /* Compact fallback SVG of Jaswanth */
+                  <svg viewBox="0 0 120 120" className="w-16 h-16 text-olive-850">
+                    <circle cx="60" cy="50" r="32" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-olive-350/40" />
+                    <path d="M22 108 C 26 78, 42 72, 60 72 C 78 72, 94 78, 98 108 Z" fill="#800020" />
+                    <path d="M48 72 L 60 92 L 72 72 M52 73 L 60 88 L 68 73" fill="#ffffff" />
+                    <rect x="54" y="58" width="12" height="15" fill="#fbcfe8" rx="1.5" />
+                    <ellipse cx="60" cy="46" rx="19.5" ry="21.5" fill="#fbcfe8" />
+                    <path d="M39 41 C 39 26, 81 26, 81 41 C 74 29, 60 29, 39 41 Z" fill="#1b2230" />
+                    <rect x="44.5" y="42" width="12.5" height="9.5" rx="2.5" fill="none" stroke="#000000" strokeWidth="1.3" />
+                    <rect x="63" y="42" width="12.5" height="9.5" rx="2.5" fill="none" stroke="#000000" strokeWidth="1.3" />
+                    <line x1="57" y1="46" x2="63" y2="46" stroke="#000000" strokeWidth="1.5" />
+                    <path d="M51.5 53 Q 60 50.5 68.5 53" fill="none" stroke="#1b2230" strokeWidth="1.8" strokeLinecap="round" />
+                    <circle cx="51" cy="46.5" r="1.3" fill="#000000" />
+                    <circle cx="69" cy="46.5" r="1.3" fill="#000000" />
+                    <path d="M55 52.5 Q 60 55.5 65 52.5" fill="none" stroke="#0c111d" strokeWidth="1.2" />
+                  </svg>
+                )}
+              </div>
+              <span className="absolute bottom-1 right-1 flex h-4 w-4">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-olive-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-4 w-4 bg-olive-500 border-2 border-white"></span>
+              </span>
+            </motion.div>
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,7 +224,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
         </div>
 
         {/* Right Premium Portrait Column (Paper-Matte Frame) */}
-        <div className="lg:col-span-5 flex justify-center items-center">
+        <div className="md:col-span-5 flex justify-center items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -210,8 +253,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
               </div>
 
               {/* Portrait Matte Frame wrapper */}
-              <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-gradient-to-b from-[#f5f6f4] to-[#ebece9] border border-olive-205 shadow-inner flex flex-col justify-center items-center group/portrait transition-all duration-300">
-                <div className="absolute inset-0 bg-radial from-white/40 via-transparent to-transparent z-0"></div>
+              <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-white border border-olive-150 shadow-inner flex flex-col justify-center items-center group/portrait transition-all duration-300">
                 
                 {imageErrCount < 12 ? (
                   <img
@@ -219,7 +261,7 @@ export default function Hero({ language, onScrollToSection }: HeroProps) {
                     alt="Jaswanth Kasireddi"
                     onError={handleImageError}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover transition-opacity duration-300 z-10"
+                    className="relative z-10 w-full h-full object-cover transition-opacity duration-300 filter-none"
                   />
                 ) : (
                   /* SVG Portrait of Jaswanth (Polished to look extremely professional & aesthetic, matching his uploaded photo) */
