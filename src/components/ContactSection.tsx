@@ -37,39 +37,57 @@ export default function ContactSection({ language }: ContactSectionProps) {
     }, 1800);
   };
 
-  // Prefer a PDF placed in `public/resume.pdf`. Falls back to in-memory txt if not available.
+  // Mock resume prints out direct raw ASCII content or formats beautifully
   const handleDownloadResume = () => {
-    const candidates = ['/assets/resume.pdf', '/resume.pdf'];
+    const rawCv = `
+=============================================
+JASWANTH KASIREDDI - CURRICULUM VITAE (CV)
+=============================================
+Profession: Certified Nurse / Bachelor of Science (B.Sc.) in Nursing
+Specialization: Heart Failure & Emergency Care Specialist
 
-    // Try candidates in order; clicking an anchor will either download or open in new tab
-    const link = document.createElement('a');
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.download = `Jaswanth_Kasireddi_CV.pdf`;
+CONTACT DETAILS:
+----------------
+Email: jaswanth.kasireddi@gmail.com
+Phone: +91 7995754180
+Address: Flat 403, Annapurna Residency, Sarada nagar, 531116, Narsipatnam, India
+DOB: 09/01/2000
 
-    for (const href of candidates) {
-      link.href = href;
-      document.body.appendChild(link);
-      try {
-        link.click();
-        document.body.removeChild(link);
-        return;
-      } catch (e) {
-        document.body.removeChild(link);
-        // try next
-      }
-    }
+QUALIFICATION & LEVEL EQUIVALENCE:
+----------------------------------
+- B.Sc. Nursing (2018 - 2023)
+  Institution: Care Waltair College of Nursing, Visakhapatnam, India
+  Level: European Qualifications Framework (EQF) Level 6
 
-    // Final fallback: generate plaintext CV (very small fallback)
-    const rawCv = `JASWANTH KASIREDDI - CV\nEmail: jaswanth.kasireddi@gmail.com\nPhone: +91 7995754180`;
+- Pre-University Natural Sciences (2015 - 2017)
+  Institution: Tirumala Junior College, India
+  Level: European Qualifications Framework (EQF) Level 5
+
+PROFESSIONAL EXPERIENCE:
+------------------------
+Heart Failure & Emergency Care Nurse (CARE Hospitals)
+Duration: 20/05/2023 - 21/03/2025 (2 Years)
+Core Tasks: Intensive monitoring of cardiology patients, vital supervision,
+high-alert pharmacotherapy, emergency team assist, and digital clinical documentation.
+
+CEFR LANGUAGES LEVELS:
+---------------------
+- German: CEFR B1 level completed (Active vocabulary advancement).
+- English: CEFR B1 level completed (Professional spoken and written fluency).
+- Telugu: Native mother tongue.
+
+=============================================
+For direct interview setup and verification:
+Email: jaswanth.kasireddi@gmail.com
+=============================================
+    `;
+
     const blob = new Blob([rawCv], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
-    const fallbackLink = document.createElement('a');
-    fallbackLink.href = url;
-    fallbackLink.download = `Jaswanth_Kasireddi_CV.txt`;
-    document.body.appendChild(fallbackLink);
-    fallbackLink.click();
-    document.body.removeChild(fallbackLink);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Jaswanth_Kasireddi_CV_${language === 'en' ? 'EN' : 'DE'}.txt`;
+    link.click();
     URL.revokeObjectURL(url);
   };
 
@@ -158,10 +176,10 @@ export default function ContactSection({ language }: ContactSectionProps) {
               <button
                 id="download-cv-btn"
                 onClick={handleDownloadResume}
-                className="w-full p-4 rounded-2xl bg-olive-650 hover:bg-olive-700 text-white font-bold flex items-center justify-center gap-3 shadow-md shadow-olive-750/5 cursor-pointer transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm border border-olive-700 focus:outline-none focus:ring-2 focus:ring-olive-300"
+                className="w-full p-4 rounded-2xl bg-olive-650 hover:bg-olive-700 text-white font-bold flex items-center justify-center gap-3 shadow-md shadow-olive-750/5 cursor-pointer transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm"
               >
                 <FileText className="w-4 h-4 shrink-0" />
-                {language === 'en' ? 'Download CV (PDF)' : 'Lebenslauf herunterladen (PDF)'}
+                {language === 'en' ? 'Download Verified CV (.txt)' : 'Verifizierten Lebenslauf herunterladen (.txt)'}
               </button>
 
               {/* GDPR Trust line */}
@@ -267,7 +285,7 @@ export default function ContactSection({ language }: ContactSectionProps) {
                       id="contact-submit"
                       type="submit"
                       disabled={formState === 'sending'}
-                      className="w-full py-4 bg-olive-650 hover:bg-olive-700 text-white font-bold rounded-2xl flex items-center justify-center gap-3 shadow-md disabled:opacity-50 transition-all duration-300 text-xs sm:text-sm border border-olive-700 focus:outline-none focus:ring-2 focus:ring-olive-300"
+                      className="w-full py-4 bg-olive-650 hover:bg-olive-700 text-white font-bold rounded-2xl flex items-center justify-center gap-3 shadow-md disabled:opacity-50 transition-all duration-300 text-xs sm:text-sm"
                     >
                       {formState === 'sending' ? (
                         <>
